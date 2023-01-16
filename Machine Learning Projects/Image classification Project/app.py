@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import numpy as np
 import tensorflow as tf
 import pickle
 import io
@@ -18,22 +17,21 @@ st.set_page_config(page_title="Plant Disease Prediction",
 
 
 def predict_disease(img):
+  # convert PIL type into bytes type
+  img_bytes = io.BytesIO()
+  img.save(img_bytes, format='jpeg')
+  img_bytes = img_bytes.getvalue()
 
-    # convert PIL type into bytes type
-    img_bytes = io.BytesIO()
-    img.save(img_bytes, format='jpeg')
-    img_bytes = img_bytes.getvalue()
+  # Decode the image
+  img = tf.image.decode_jpeg(img_bytes, channels=3)
 
-    # Decode the image
-    img = tf.image.decode_jpeg(img_bytes, channels=3)
-
-    img = tf.image.resize(img, (64, 64))
-    img = tf.reshape(img, (1, 64, 64, 3))
-    img = img/255.0
-    prediction = model.predict(img)
-    predicted_labels = le.inverse_transform(prediction.argmax(axis=1))
-    confidence = tf.reduce_max(prediction)
-    return predicted_labels[0], confidence
+  img = tf.image.resize(img, (64, 64))
+  img = tf.reshape(img, (1, 64, 64, 3))
+  img = img/255.0
+  prediction = model.predict(img)
+  predicted_labels = le.inverse_transform(prediction.argmax(axis=1))
+  confidence = tf.reduce_max(prediction)
+  return predicted_labels[0], confidence
 
 
 def format_disease(label):
@@ -55,12 +53,10 @@ st.title("Plant Disease Prediction App")
 uploaded_file = st.file_uploader(
     "Upload an image of a plant", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
+
     image = Image.open(uploaded_file)
-    image2 = image.resize(64, 64)
-    height, width = image2.size
-    st.image(image2, caption="Uploaded Image.",
-             use_column_width=True, width=width, height=height)
-    # st.write(type(image))
+    st.image(image, caption="Uploaded Image.")
+
     if st.button("Predict"):
         # make prediction
         prediction = predict_disease(image)
@@ -68,6 +64,7 @@ if uploaded_file is not None:
         if disease == 'healthy':
             st.success("The plant is healthy \nConfidence : {}".format(
                 round(prediction[1].numpy()*100, 2)))
+
         else:
             st.success(
                 "Disease of {} and the disease name is {} \n Confidence : {}".format(name, disease, round(prediction[1].numpy()*100, 2)))
