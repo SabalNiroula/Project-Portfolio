@@ -10,6 +10,7 @@ numpy = "*"
 pandas = "*"
 tensorflow = "*"
 
+
 [dev-packages]
 
 [requires]
