@@ -1,3 +1,4 @@
+> Model was trained using this (https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset)[DATASET]
 - Built a CNN (Convolutional Neural Network) model for classifying plant and fruit diseases
 - Model is trained to identify multiple types of diseases including those affecting potato, tomato, grape, strawberry and pepper bell plants.
 - Accurate in identifying and classifying various types of plant diseases. `Accuracy percentage : 95.7 %`
