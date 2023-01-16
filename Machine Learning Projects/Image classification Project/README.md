@@ -7,4 +7,3 @@
 - Can be useful in early disease detection and effective disease management
 - The dataset used is publicly available and can be used to reproduce the results
 - The model is trained and tested on multiple architectures and the best one is deployed
-  The model is deployed on the cloud and can be accessed via API.
