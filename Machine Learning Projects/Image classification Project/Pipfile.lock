@@ -1134,7 +1134,7 @@
                 "sha256:f979ab81f58d7318e064e99c4506445d60135ac5cd2e177a2de0089bfd4c9bd5"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2.2.2"
+            "version": ">=2.2.3"
         },
         "wheel": {
             "hashes": [
