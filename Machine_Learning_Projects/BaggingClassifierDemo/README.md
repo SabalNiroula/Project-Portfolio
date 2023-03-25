@@ -8,4 +8,4 @@ This Streamlit app is designed to help users compare the performance of various 
 - Pandas
 - NumPy
 
-![App Demo](https://sabal-bagging-visualization.streamlit.app/)
+App Demo: https://sabal-bagging-visualization.streamlit.app/
