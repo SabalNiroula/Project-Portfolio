@@ -2,18 +2,31 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import BaggingClassifier, BaggingRegressor
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.svm import SVC
+from sklearn.svm import SVC, SVR
 from sklearn.metrics import accuracy_score, r2_score
 import streamlit as st
 from sklearn.datasets import make_classification, make_regression
 import matplotlib.pyplot as plt
 import numpy as np
-import importlib
 
-st.set_page_config(page_title='Bagging Technique', layout='wide',
-                   page_icon='logo.jpg', initial_sidebar_state='auto')
-
-
+st.set_page_config(
+    page_title="Bagging Technique",
+    page_icon="logo.jpg",
+    # layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
+)
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 def plot_decision_boundary(clf, X, Y, cmap='Paired_r'):
     h = 0.02
@@ -123,7 +136,10 @@ def create_and_train_model(base_model, X, y):
 if st.sidebar.button('Run Algorithm'):
     # Build the Bagging Classifier
     if base_model == 'SVM':
-        base_model = SVC()
+        if statement == 'cla':
+            base_model = SVC()
+        else:
+            base_model = SVR()
     elif base_model == 'Decision Tree':
         if statement == 'cla':
             base_model = DecisionTreeClassifier()
