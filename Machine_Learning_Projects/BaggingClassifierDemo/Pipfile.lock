@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "df13a1833aaee4dde740f600f914e692f7a34e7fd2d208ec2bf645328990263f"
+            "sha256": "09eb48bdd9eedfe99fa1f5f98863fefb7ab446800ffe7007d59de37ff88dc6ea"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -277,6 +277,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==6.1.0"
+        },
+        "importlib-resources": {
+            "hashes": [
+                "sha256:4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6",
+                "sha256:7b1deeebbf351c7578e09bf2f63fa2ce8b5ffec296e0d349139d43cca061a81a"
+            ],
+            "index": "pypi",
+            "version": "==5.12.0"
         },
         "jinja2": {
             "hashes": [
@@ -969,11 +977,11 @@
         },
         "tzdata": {
             "hashes": [
-                "sha256:2b88858b0e3120792a3c0635c23daf36a7d7eeeca657c323da299d2094402a0d",
-                "sha256:fe5f866eddd8b96e9fcba978f8e503c909b19ea7efda11e52e39494bad3a7bfa"
+                "sha256:905ae9e6744dd9ef5ce94d2aaa2dd00282fee38b670b2133407f23c388f110a1",
+                "sha256:c3b51b235b07f9f1889089c2264bcbeaaba260a63f89bea09e350ea4205eb95f"
             ],
             "markers": "platform_system == 'Windows'",
-            "version": "==2022.7"
+            "version": "==2023.2"
         },
         "tzlocal": {
             "hashes": [
