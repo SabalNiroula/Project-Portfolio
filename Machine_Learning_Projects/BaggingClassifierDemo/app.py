@@ -108,7 +108,7 @@ def create_and_train_model(base_model, X, y):
             max_features=max_feature,
             bootstrap_features=bootstrap_feature)
         
-        decision_tree = DecisionTreeClassifier()
+        decision_tree = base_model
     else:
         bag = BaggingRegressor(
             base_estimator=base_model,
@@ -116,7 +116,7 @@ def create_and_train_model(base_model, X, y):
             max_samples=max_sample,
             bootstrap=bootstrap_sample)
 
-        decision_tree = DecisionTreeRegressor()
+        decision_tree = base_model
 
     bag.fit(X_train, y_train)
     decision_tree.fit(X_train, y_train)
@@ -129,7 +129,6 @@ def create_and_train_model(base_model, X, y):
         y_pred2 = decision_tree.predict(X_test)
 
     return [(bag, r2_score(y_test, y_pred1)), (decision_tree, r2_score(y_test, y_pred2))]
-
 
 
 # Run the algorithm
