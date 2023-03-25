@@ -10,8 +10,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import importlib
 
-st.beta_set_page_config(page_title='Bagging Technique', 
-                        layout='wide', initial_sidebar_state='auto')
+st.set_page_config(page_title='Bagging Technique', layout='wide',
+                   page_icon='logo.jpg', initial_sidebar_state='auto')
+
 
 
 def plot_decision_boundary(clf, X, Y, cmap='Paired_r'):
