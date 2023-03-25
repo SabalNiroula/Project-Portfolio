@@ -8,7 +8,7 @@ import streamlit as st
 from sklearn.datasets import make_classification, make_regression
 import matplotlib.pyplot as plt
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
+import importlib
 
 def plot_decision_boundary(clf, X, Y, cmap='Paired_r'):
     h = 0.02
