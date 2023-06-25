@@ -15,7 +15,6 @@ with open('remedies.json', 'r') as f:
 st.set_page_config(page_title="Plant Disease Prediction",
                    page_icon=":herb:", layout="wide")
 
-
 def predict_disease(img):
   # convert PIL type into bytes type
   img_bytes = io.BytesIO()
