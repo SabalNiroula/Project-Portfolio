@@ -8,7 +8,7 @@ streamlit = "*"
 scikit-learn = "*"
 numpy = "*"
 pandas = "*"
-tensorflow = "*"
+tensorflow = ">=2.11.1"
 werkzeug = ">=2.2.3"
 
 [dev-packages]
